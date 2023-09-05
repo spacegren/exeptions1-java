@@ -37,19 +37,18 @@ public class Exeptions {
         System.out.println("CHECK-OUT (dd/MM/yyyy) ");
         chekout = SDF.parse(sc.next());
 
-        Date now = new Date();
-        if(chekin.before(now) || chekout.before(now)){
-            System.out.println("ERROR IN RESREVATION DATES FOR UPDATES MUST A FUTURE : ");
-        }
-        else if (!chekout.after(chekin)){
-            System.out.println("ERROR IN RESERVATION , CHECK-OUT DATE MUST BE AFTER CHECK-IN DATE ");
-        }
-        else {
-            reservation.UpdtateDAtes(chekin, chekout);
-            System.out.println("RESERVATION : " + reservation);
+    System.out.println("ADICIONANDO 'MELHORIAS' NO CODIGO , UMA SOLUÇAO AINDA MUITO EUIM POR PARTES MAS USAMOS A DELEGAÇAO DE DADOS ");
 
-        }
+    System.out.println("AINDA CONTINUA MUITO RUIM A FORMA DE SE RESOLVER ESTE PROBLEMA : ");
 
+        String error = reservation.UpdtateDAtes(chekin, chekout);
+        if (error != null){
+            System.out.println("ERROR IN RESERVATION : " + error);
+        }else {
+            System.out.println("RESERVATION :" + reservation);
         }
+        }
+        sc.close();
     }
+
 }
